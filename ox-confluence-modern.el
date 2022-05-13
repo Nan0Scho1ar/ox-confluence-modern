@@ -340,8 +340,9 @@ holding export options."
 INFO is a plist used as a communication channel."
   (let* ((title (org-export-data (org-export-get-alt-title headline info) info))
          (level (1- (org-element-property :level headline)))
-         (indent (concat (make-string (* level 2) ? ))))
-    (concat indent "- [" title "]" "(#" title ")")))
+         (indent (concat (make-string (* level 2) ? )))
+         (url (replace-regexp-in-string " " "-" title)))
+    (concat indent "- [" title "]" "(#" url ")")))
 
 
 
