@@ -93,14 +93,10 @@ contextual information."
 (org-export-define-derived-backend 'confluence 'md
   :filters-alist '((:filter-parse-tree . org-md-separate-elements))
   :menu-entry
-  '(?g "Export to Confluence Flavored Markdown"
-       ((?G "To temporary buffer"
-            (lambda (a s v b) (let ((org-html-protect-char-alist '())
-                               (org-html-special-string-regexps '())
-                               (+web-entities-list '()))
-                           (org-confluence-export-as-markdown a s v))))
-        (?g "To file" (lambda (a s v b)) (org-confluence-export-to-markdown a s v))
-        (?o "To file and open"
+  '(?C "Export to Confluence Flavored Markdown"
+       ((?C "To temporary buffer"
+            (lambda (a s v b) (org-confluence-export-as-markdown a s v)))
+        (?f "To file"
             (lambda (a s v b)
               (if a (org-confluence-export-to-markdown t s v)
                 (org-open-file (org-confluence-export-to-markdown nil s v)))))))
