@@ -1,0 +1,14 @@
+#+title: Ox Confluence Modern
+#+options: toc:nil
+* Ox Confluence Modern
+I found that all the existing org exporters I could find were using the old confluence syntax.
+This exporter allows you to just copy straight from the buffer into conflunce while maintaining
+(most) of your syntax like inline code, tables, headings and code blocks.
+I also modified how the TOC generates so it will still work in confluence.
+
+** Installation Instructions
+*** Doom Emacs
+Add the following line to your ~packages.el~ then run ~doom sync~.
+#+begin_src emacs-lisp
+(package! ox-confluence :recipe (:host github :repo "nan0scho1ar/ox-confluence-modern" :files ("*.el")))
+#+end_src
