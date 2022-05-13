@@ -1,7 +1,7 @@
 #+title: Ox Confluence Modern
 #+options: toc:nil
 I found that all the existing org exporters I could find were using the old confluence syntax.
-This exporter allows you to just copy straight from the buffer into conflunce while maintaining
+This exporter allows you to just copy straight from the buffer into confluence while maintaining
 (most) of your syntax like inline code, tables, headings and code blocks.
 I also modified how the TOC generates so it will still work in confluence.
 
