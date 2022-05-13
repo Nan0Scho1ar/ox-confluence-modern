@@ -284,16 +284,6 @@ contextual information."
 
 ;;;; Table of contents
 
-(defun org-confluence-format-toc (headline)
-  "Return an appropriate table of contents entry for HEADLINE.
-INFO is a plist used as a communication channel."
-  (let* ((title (org-export-data
-                 (org-export-get-alt-title headline info) info))
-         (level (1- (org-element-property :level headline)))
-         (indent (concat (make-string (* level 2) ? ))))
-    (concat indent "- [" title "]" "(#" title ")")))
-
-
 ;;;; Footnote section
 
 (defun org-confluence-footnote-section (info)
@@ -340,9 +330,18 @@ CONTENTS is the transcoded contents string.  INFO is a plist
 holding export options."
   (let* ((depth (plist-get info :with-toc))
          (headlines (and depth (org-export-collect-headlines info depth)))
-         (toc-string (or (mapconcat 'org-confluence-format-toc headlines "\n") ""))
+         (toc-string (or (mapconcat (lambda (x) (org-confluence-format-toc x info)) headlines "\n") ""))
          (toc-tail (if headlines "\n\n" "")))
     (org-trim (concat toc-string toc-tail contents "\n" (org-confluence-footnote-section info)))))
+
+
+(defun org-confluence-format-toc (headline info)
+  "Return an appropriate table of contents entry for HEADLINE.
+INFO is a plist used as a communication channel."
+  (let* ((title (org-export-data (org-export-get-alt-title headline info) info))
+         (level (1- (org-element-property :level headline)))
+         (indent (concat (make-string (* level 2) ? ))))
+    (concat indent "- [" title "]" "(#" title ")")))
 
 
 
