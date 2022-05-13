@@ -6,7 +6,7 @@
 ;; Maintainer: Nan0Scho1ar <scorch267@gmail.com>
 ;; Created: May 13, 2022
 ;; Modified: May 13, 2022
-;; Version: 0.0.1
+;; Version: 1.0
 ;; Keywords: abbrev bib c calendar comm convenience data docs emulations extensions faces files frames games hardware help hypermedia i18n internal languages lisp local maint mail matching mouse multimedia news outlines processes terminals tex tools unix vc wp
 ;; Homepage: https://confluence.com/nan0scho1ar/ox-confluence-modern
 ;; Package-Requires: ((emacs "27.1"))
